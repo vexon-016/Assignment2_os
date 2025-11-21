@@ -1,0 +1,113 @@
+Exercise 1: Using fork() in C
+-----------------------------
+File: process_creation.c
+
+Description:
+- fork() creates a new process by duplicating the calling process.
+- The child process gets pid == 0.
+- The parent process gets the child’s PID.
+- If fork fails, it returns a negative value.
+- Demonstrates concurrent execution of parent and child processes.
+
+---
+
+Exercise 2: Starting Processes in the Background
+------------------------------------------------
+Commands:
+- sleep 300 &   --> Starts a process in the background for 300 seconds.
+- jobs          --> Lists all running background processes.
+
+Explanation:
+- The & operator allows the process to run in the background.
+- jobs command is used to monitor background processes.
+
+---
+
+Exercise 3: Stopping Processes
+------------------------------
+Commands:
+- ps aux | grep sleep  --> Find the PID of the sleep process.
+- kill <PID>           --> Stop/terminate the process.
+- ps aux | grep sleep  --> Verify the process is no longer running.
+
+Explanation:
+- ps lists all processes.
+- kill sends a signal to terminate the process.
+
+---
+
+Exercise 4: Pausing and Resuming a Process
+-----------------------------------------
+Commands:
+- kill -STOP <PID>  --> Pause the process.
+- kill -CONT <PID>  --> Resume the process.
+
+Explanation:
+- STOP signal suspends the process temporarily.
+- CONT signal resumes the suspended process.
+
+---
+
+Exercise 5: Role of the Linker
+------------------------------
+Files: file1.c & file2.c
+
+Description:
+- file1.c contains function hello() that prints a message.
+- file2.c calls hello() in main().
+- Compile and link: gcc file1.c file2.c -o output_program
+
+Explanation:
+- The linker combines multiple object files into a single executable.
+- Resolves references between functions and variables across files.
+- Modifying one file and recompiling only that file saves time during linking.
+
+Job of the Linker:
+- Combines object files (.o) into one executable.
+- Resolves external references to functions and variables.
+
+---
+
+Exercise 6: Role of the Loader
+------------------------------
+File: simple_program.c
+
+Description:
+- Prints a simple message: "This is a simple program."
+- Compile: gcc simple_program.c -o simple_program
+- Check dynamic libraries: ldd simple_program
+
+Explanation:
+- The loader loads the program into memory when executed.
+- It links the executable with dynamic libraries at runtime.
+
+Job of the Loader:
+- Loads the executable into memory.
+- Prepares it for execution by linking with required libraries.
+
+---
+
+Makefile
+---------
+Description:
+- Simplifies compilation of all examples.
+- Provides targets for each program and a clean target to remove executables.
+
+Example commands:
+- make       --> Compile all programs.
+- make clean --> Remove all compiled executables.
+
+---
+
+Running Programs
+----------------
+- ./process_creation  --> Run fork() example.
+- ./output_program    --> Run linked files example.
+- ./simple_program    --> Run loader example.
+
+---
+
+License
+--------
+- Project uses MIT License.
+- You can freely use, modify, and distribute the code with the copyright notice.
